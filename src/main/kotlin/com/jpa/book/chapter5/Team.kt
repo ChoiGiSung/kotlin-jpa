@@ -17,6 +17,7 @@ class Team(
     val name: String,
 ) {
     fun addMember(member: Member) {
+        //무한루프 주의
         members.add(member)
         member.team?.let {
             if (it != this) member.team = this

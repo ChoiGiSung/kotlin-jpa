@@ -17,6 +17,7 @@ class Member(
     @JoinColumn(name = "TEAM_ID")
     var team: Team? = team
         set(value) {
+            //무한루프 주의
             field?.removeMember(this)
             field = value
             field?.addMember(this)
