@@ -18,6 +18,9 @@ class Team(
 ) {
     fun addMember(member: Member) {
         members.add(member)
+        member.team?.let {
+            if (it != this) member.team = this
+        }
     }
 
     fun removeMember(member: Member) {
