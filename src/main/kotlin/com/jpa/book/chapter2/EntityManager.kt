@@ -5,7 +5,7 @@ import javax.persistence.Persistence
 class EntityManager {
 
     fun getManager(){
-        val createEntityManagerFactory = Persistence.createEntityManagerFactory("jpabook")
+        val createEntityManagerFactory = Persistence.createEntityManagerFactory("Default")
         val createEntityManager = createEntityManagerFactory.createEntityManager()
         val transaction = createEntityManager.transaction
     }
