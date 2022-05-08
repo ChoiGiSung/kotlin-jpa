@@ -12,8 +12,15 @@ class Team(
     val id: Long,
 
     @OneToMany(mappedBy = "team")
-    val members: List<Member> = mutableListOf(),
+    val members: MutableList<Member> = mutableListOf(),
 
     val name: String,
 ) {
+    fun addMember(member: Member) {
+        members.add(member)
+    }
+
+    fun removeMember(member: Member) {
+        members.remove(member)
+    }
 }

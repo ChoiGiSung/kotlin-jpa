@@ -10,8 +10,16 @@ class Member(
 
     val username: String,
 
+    team: Team? = null,
+) {
+
     @ManyToOne
     @JoinColumn(name = "TEAM_ID")
-    var team: Team? = null,
-) {
+    var team: Team? = team
+        set(value) {
+            field?.removeMember(this)
+            field = value
+            field?.addMember(this)
+        }
+
 }
