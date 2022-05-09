@@ -13,7 +13,6 @@ class Member(
     team: Team? = null,
 ) {
 
-
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "TEAM_ID", nullable = false)
     var team: Team? = team
