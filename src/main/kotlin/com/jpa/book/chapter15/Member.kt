@@ -1,17 +1,27 @@
 package com.jpa.book.chapter15
 
 import org.springframework.data.jpa.repository.JpaRepository
-import javax.persistence.Entity
-import javax.persistence.GeneratedValue
-import javax.persistence.Id
+import javax.persistence.*
 
 @Entity
 class Member(
     @Id
     @GeneratedValue
-    val id:Long
+    val id: Long,
 ) {
 }
 
+@Entity
+class Team(
+    @Id
+    @GeneratedValue
+    val id: Long,
 
-interface MemberRepository : JpaRepository<Member,Long>
+    @OneToMany(fetch = FetchType.LAZY)
+    val member: List<Member>,
+) {
+
+}
+
+
+interface MemberRepository : JpaRepository<Member, Long>
