@@ -19,6 +19,7 @@ class Team(
 
     @OneToMany(fetch = FetchType.LAZY)
     val member: List<Member>,
+
 ) {
 
 }
